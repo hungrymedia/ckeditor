@@ -53,7 +53,7 @@ module Ckeditor
         
         def read_dimensions
           if model.image? && model.has_dimensions?
-            magick = ::RMagick::Image.new(current_path)
+            magick = ::Magick::Image.new(current_path)
             model.width, model.height = magick[:width], magick[:height]
           end
         end
