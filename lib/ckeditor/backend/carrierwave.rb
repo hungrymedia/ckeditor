@@ -1,5 +1,5 @@
 require 'mime/types'
-require 'mini_magick'
+require 'rmagick'
 
 module Ckeditor
   module Backend
@@ -53,7 +53,7 @@ module Ckeditor
         
         def read_dimensions
           if model.image? && model.has_dimensions?
-            magick = ::MiniMagick::Image.new(current_path)
+            magick = ::RMagick::Image.new(current_path)
             model.width, model.height = magick[:width], magick[:height]
           end
         end
